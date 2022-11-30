@@ -2,6 +2,10 @@ import React
     // , { Component } 
     from 'react'
 import './../index.css';
+import { useState } from 'react';
+import { auth } from '../firebase-config';
+import {signInWithGoogle} from 'firebase'
+import {signInWithEmailAndPassword} from 'firebase/auth'
 
 // export class Login extends Component {
 //     render() {
@@ -46,6 +50,20 @@ import './../index.css';
 
 
 function Login() {
+
+    const[loginEmail , setLoginEmail] = useState("");
+    const[loginPassword , setLoginPassword] = useState("");
+
+    const login = async () => {
+        try{
+            const user = await signInWithEmailAndPassword(
+                auth , loginEmail , loginPassword
+            );
+        }catch(error){
+            console.log(error.message);
+        }
+    }
+
     return (
         <div>
             <section class="vh-100 logimg">
@@ -58,24 +76,24 @@ function Login() {
                                     <h2 class="mb-5">Log in</h2>
 
                                     <div class="form-outline mb-4">
-                                        <input type="email" id="typeEmailX-2" class="form-control form-control-lg" placeholder='Email' />
+                                        <input type="email" id="typeEmailX-2" class="form-control form-control-lg" onChange={(event)=> {setLoginEmail(event.target.value)}}/>
+                                        <label class="form-label" htmlFor="typeEmailX-2">Email</label>
                                     </div>
 
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="typePasswordX-2" class="form-control form-control-lg" placeholder='Password' />
-
+                                        <input type="password" id="typePasswordX-2" class="form-control form-control-lg" onChange={(event)=> {setLoginEmail(event.target.value)}}/>
+                                        <label class="form-label" htmlFor="typePasswordX-2">Password</label>
                                     </div>
 
-                                    <button class="btn btn-success btn-lg btn-block" type="submit">Login</button>
+                                    <button class="btn btn-primary btn-lg btn-block" type="submit" onClick={login}>Login</button>
 
                                     {/* <hr class="my-4" /> */}
                                     <div class="divider d-flex align-items-center my-4">
                                         <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
                                     </div>
 
-                                    <button class="btn btn-lg btn-block" style={{ backgroundColor: "#dd4b39" }}
-                                        type="submit"><i class="fab fa-google me-2"></i> Log In with google
-                                    </button>
+                                    <button class="btn btn-lg btn-block btn-primary" style={{ backgroundColor: "#dd4b39" }}
+                                        type="submit" onClick={signInWithGoogle}><i class="fab fa-google me-2"></i> Login with google</button>
 
                                 </div>
                             </div>
