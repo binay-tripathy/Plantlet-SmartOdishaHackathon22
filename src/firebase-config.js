@@ -14,10 +14,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
-const porvider = new GoogleAuthProvider();
+const provider = new GoogleAuthProvider();
 
 export const signInWithGoogle = ()  =>{
-    signInWithPopup(auth , porvider)
+    signInWithPopup(auth , provider)
     .then((result) => {
         const name = result.user.displayName;
         const email = result.user.email;
