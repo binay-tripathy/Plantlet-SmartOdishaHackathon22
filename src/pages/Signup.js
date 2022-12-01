@@ -12,14 +12,16 @@ import { auth , signInWithGoogle} from '../firebase-config';
 import {createUserWithEmailAndPassword} from "firebase/auth";
 
 
+
 function Signup() {
 
   const[firstName , setFirstName] = useState("");
   const[lastName , setLastName] = useState("");
   const[phoneNumber , setPhoneNumber] = useState("");
-  const [SignupEmail, setSignupEmail] = useState("");
-  const [SignupPassword, setSignupPassword] = useState("");
+  const[SignupEmail, setSignupEmail] = useState("");
+  const[SignupPassword, setSignupPassword] = useState("");
 
+  
 
   const signup = async () => {
     try {
@@ -31,6 +33,7 @@ function Signup() {
       console.log(error.message);
     }
   }
+
   return (
 
     <div>
@@ -87,7 +90,7 @@ function Signup() {
                     <div className="divider d-flex align-items-center my-4">
                       <p className="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
                     </div>
-                    <button className="btn btn-lg btn-block btn-primary" style={{ backgroundColor: "#dd4b39" }} type="submit" onClick={signInWithGoogle}><i className="fab fa-google me-2"></i> Log In with google
+                    <button className="btn btn-lg btn-block btn-primary" style={{ backgroundColor: "#dd4b39" }} onClick={signInWithGoogle}><i className="fab fa-google me-2"></i> Log In with google
                     </button>
                   </form>
                 </div>
