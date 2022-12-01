@@ -30,7 +30,7 @@ function HomePage() {
         <div>
             <>
                 <Navbar />
-                <QuoteBody quote="This is a Quote" />
+                <QuoteBody quote="Someone is sitting in the shade today because someone planted a tree a long time ago." />
                 <Testimonials />
                 <Footer />
             </>
