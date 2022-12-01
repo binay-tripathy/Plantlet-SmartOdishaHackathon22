@@ -1,12 +1,3 @@
-// import React, { Component } from 'react'
-
-// export class Signup extends Component {
-//   render() {
-//     return (
-//       <div>Signup</div>
-//     )
-//   }
-// }
 import React, { useState } from 'react'
 import { auth, signInWithGoogle } from '../firebase-config';
 import { createUserWithEmailAndPassword } from "firebase/auth";

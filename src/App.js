@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import HomePage from './pages/HomePage'
+import Details from './pages/Details';
 
 // export class App extends Component {
 //   render() {
@@ -48,6 +49,9 @@ function App() {
             </Route>
             <Route exact path="/signup">
               <Signup />
+            </Route>
+            <Route exact path="/details">
+              <Details/>
             </Route>
           </Switch>
         </Router>
