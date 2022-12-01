@@ -10,30 +10,6 @@ import Signup from './pages/Signup';
 import HomePage from './pages/HomePage'
 import Details from './pages/Details';
 
-// export class App extends Component {
-//   render() {
-//     return (
-//       <>
-//         <Router>
-//           <Switch>
-//             <Route exact path="/">
-//               <HomePage />
-//             </Route>
-//             <Route exact path="/login">
-//               <Login />
-//             </Route>
-//             <Route exact path="/signup">
-//               <Signup />
-//             </Route>
-//           </Switch>
-//         </Router>
-//       </>
-//     )
-//   }
-// }
-
-// export default App
-// import React from 'react'
 
 function App() {
   return (
