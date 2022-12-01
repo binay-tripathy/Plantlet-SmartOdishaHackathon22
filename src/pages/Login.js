@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { auth } from '../firebase-config';
 import {signInWithGoogle} from '../firebase-config'
 import {signInWithEmailAndPassword} from 'firebase/auth'
+import { Link } from 'react-router-dom';
 
 // export class Login extends Component {
 //     render() {
@@ -93,7 +94,7 @@ function Login() {
                                         <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
                                     </div>
                                     <button class="btn btn-lg btn-block btn-primary" style={{ backgroundColor: "#dd4b39" }}
-                                        type="submit" onClick={signInWithGoogle}><i class="fab fa-google me-2"></i> Log In with google
+                                        type="submit" onClick={signInWithGoogle}><Link to="/details" style={{color: "inherit", textDecoration: "inherit"}}><i class="fab fa-google me-2"></i> Log In with google</Link>
                                         </button>
 
                                 </div>

@@ -8,25 +8,26 @@
 //   }
 // }
 import React, { useState } from 'react'
-import { auth , signInWithGoogle} from '../firebase-config';
-import {createUserWithEmailAndPassword} from "firebase/auth";
+import { auth, signInWithGoogle } from '../firebase-config';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { Link } from 'react-router-dom';
 
 
 
 function Signup() {
 
-  const[firstName , setFirstName] = useState("");
-  const[lastName , setLastName] = useState("");
-  const[phoneNumber , setPhoneNumber] = useState("");
-  const[SignupEmail, setSignupEmail] = useState("");
-  const[SignupPassword, setSignupPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [SignupEmail, setSignupEmail] = useState("");
+  const [SignupPassword, setSignupPassword] = useState("");
 
-  
+
 
   const signup = async () => {
     try {
       const user = await createUserWithEmailAndPassword(
-        auth, firstName , lastName, phoneNumber,  SignupEmail, SignupPassword
+        auth, firstName, lastName, phoneNumber, SignupEmail, SignupPassword
       );
       console.log(user);
     } catch (error) {
@@ -51,14 +52,14 @@ function Signup() {
                       <div className="col-md-6 mb-4">
 
                         <div className="form-outline">
-                          <input type="text" id="firstName" className="form-control form-control-lg" placeholder='First Name' onChange={(event)=>{setFirstName(event.target.value)}} />
+                          <input type="text" id="firstName" className="form-control form-control-lg" placeholder='First Name' onChange={(event) => { setFirstName(event.target.value) }} />
                         </div>
 
                       </div>
                       <div className="col-md-6 mb-4">
 
                         <div className="form-outline">
-                          <input type="text" id="lastName" className="form-control form-control-lg" placeholder='Last Name' onChange={(event)=>{setLastName(event.target.value)}} />
+                          <input type="text" id="lastName" className="form-control form-control-lg" placeholder='Last Name' onChange={(event) => { setLastName(event.target.value) }} />
                         </div>
 
                       </div>
@@ -80,7 +81,7 @@ function Signup() {
                     <div className="row" style={{ justifyContent: "center" }}>
                       <div className="col-md-6 mb-4">
                         <div className="form-outline">
-                          <input type="tel" id="phoneNumber" className="form-control form-control-lg"  placeholder='Phone Number' onChange={(event)=>{setPhoneNumber(event.target.value)}} />
+                          <input type="tel" id="phoneNumber" className="form-control form-control-lg" placeholder='Phone Number' onChange={(event) => { setPhoneNumber(event.target.value) }} />
                         </div>
                       </div>
                     </div>
@@ -90,7 +91,7 @@ function Signup() {
                     <div className="divider d-flex align-items-center my-4">
                       <p className="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
                     </div>
-                    <button className="btn btn-lg btn-block btn-primary" style={{ backgroundColor: "#dd4b39" }} onClick={signInWithGoogle}><i className="fab fa-google me-2"></i> Log In with google
+                    <button className="btn btn-lg btn-block btn-primary" style={{ backgroundColor: "#dd4b39" }} onClick={signInWithGoogle}><Link to="/details" style={{ color: "inherit", textDecoration: "inherit" }}><i className="fab fa-google me-2"></i> Log In with google</Link>
                     </button>
                   </form>
                 </div>
